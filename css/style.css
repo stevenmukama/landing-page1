@@ -456,8 +456,10 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
 .category-card { text-align: center; display: flex; flex-direction: column; align-items: center; }
 
 .category-circle {
-  width: min(100%, 150px);
-  aspect-ratio: 1 / 1;            /* guarantees a perfect circle */
+  position: relative;
+  width: 148px;                   /* fixed square — the most bulletproof circle: */
+  height: 148px;                  /* identical geometry in every browser, no modern APIs */
+  flex: none;                     /* flexbox may never squash the circle */
   border-radius: 50%;
   overflow: hidden;               /* crops anything that sticks out of the circle */
   border: 1px solid var(--border-strong);
@@ -467,8 +469,10 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Images always fill their circle: object-fit crops the overflow
-   instead of squashing or letterboxing, regardless of source ratio. */
+/* Images always fill their circle: the img covers the full square and
+   object-fit crops any overflow instead of squashing or letterboxing.
+   (And since every source image is square, even browsers without
+   object-fit render a perfectly filled circle.) */
 .category-circle img {
   width: 100%;
   height: 100%;
@@ -748,7 +752,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
   .section { padding: 80px 0; }
   .features-grid, .testi-grid, .pricing-grid { grid-template-columns: 1fr; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; }
-  .category-circle { width: min(100%, 140px); }
+  .category-circle { width: 138px; height: 138px; }
   .price-card.price-popular { grid-column: span 1; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
@@ -760,6 +764,11 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
   .kpi:nth-child(3) { display: none; }
   .footer-bottom { justify-content: center; text-align: center; }
   .cta-banner { padding: 56px 22px; }
+}
+
+/* Ultra-narrow phones: shrink the category circles so they always fit */
+@media (max-width: 420px) {
+  .category-circle { width: 118px; height: 118px; }
 }
 
 /* ---------- Reduced motion ---------- */
