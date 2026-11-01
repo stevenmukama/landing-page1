@@ -7,7 +7,7 @@ set -e
 
 TOKEN="${GITHUB_TOKEN:?Usage: GITHUB_TOKEN=ghp_xxxx ./push-to-github.sh}"
 OWNER="stevenmukama"
-REPO="landing-page"
+REPO="landing-page1"
 
 echo "→ Creating repo ${OWNER}/${REPO} on GitHub (if it does not exist)..."
 HTTP_CODE=$(curl -s -o /tmp/gh-create.json -w "%{http_code}" \

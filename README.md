@@ -8,7 +8,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![License: MIT](https://img.shields.io/badge/License-MIT-8B5CF6.svg?style=flat-square)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-22D3EE.svg?style=flat-square)](https://github.com/stevenmukama/landing-page/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-22D3EE.svg?style=flat-square)](https://github.com/stevenmukama/landing-page1/pulls)
 
 </div>
 
@@ -44,8 +44,8 @@ No build step. No dependencies. Really.
 
 ```bash
 # 1. Clone
-git clone https://github.com/stevenmukama/landing-page.git
-cd landing-page
+git clone https://github.com/stevenmukama/landing-page1.git
+cd landing-page1
 
 # 2. Open
 open index.html          # macOS
