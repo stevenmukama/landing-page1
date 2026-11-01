@@ -29,12 +29,13 @@ It features a premium dark design with gradient accents, glassmorphism cards, a 
 | 3 | **Logo marquee** | Infinite-scrolling "trusted by" strip (pauses on hover) |
 | 4 | **Features** | 6 glass cards with cursor-tracking glow |
 | 5 | **How it works** | 3 connected steps |
-| 6 | **Stats band** | Scroll-triggered animated counters |
-| 7 | **Testimonials** | 6 review cards with star ratings |
-| 8 | **Pricing** | 3 tiers with monthly/yearly toggle (animated price change) |
-| 9 | **FAQ** | Accessible `<details>` accordion, one-open-at-a-time |
-| 10 | **CTA banner** | Gradient panel with glowing orbs |
-| 11 | **Footer** | 5-column link grid, social icons, back-to-top button |
+| 6 | **Featured categories** | 6 circular category cards — images always fill their circles via `object-fit: cover` |
+| 7 | **Stats band** | Scroll-triggered animated counters |
+| 8 | **Testimonials** | 6 review cards with star ratings |
+| 9 | **Pricing** | 3 tiers with monthly/yearly toggle (animated price change) |
+| 10 | **FAQ** | Accessible `<details>` accordion, one-open-at-a-time |
+| 11 | **CTA banner** | Gradient panel with glowing orbs |
+| 12 | **Footer** | 5-column link grid, social icons, back-to-top button |
 
 Plus: scroll progress bar, scroll-reveal animations, custom selection color, focus-visible styles and `prefers-reduced-motion` support.
 
@@ -70,6 +71,7 @@ landing-page/
 │   └── style.css       # Design tokens, components, animations, responsive rules
 ├── js/
 │   └── main.js         # Menu, scrollspy, reveals, counters, pricing toggle, FAQ
+├── img/                # AI-generated category images (swap with your own)
 ├── LICENSE
 └── README.md
 ```
@@ -90,6 +92,7 @@ Everything is driven by CSS custom properties at the top of `css/style.css`:
 
 - **Rebrand:** search & replace `Lumina` in `index.html`, swap the SVG logo mark.
 - **Change pricing:** edit the `data-monthly` / `data-yearly` attributes on `.price-amount`.
+- **Swap category images:** drop any square image into `img/` — the CSS crops it to a perfect circle with `object-fit: cover`, so any aspect ratio works.
 - **Change gradient:** edit `--grad` and `--grad-text`.
 
 ## 🌍 Deployment
