@@ -450,6 +450,44 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
 .step-connector { align-self: center; width: 44px; height: 2px; background: linear-gradient(90deg, rgba(99, 102, 241, 0.6), rgba(217, 70, 239, 0.6)); border-radius: 2px; position: relative; }
 .step-connector::after { content: ""; position: absolute; right: -2px; top: 50%; transform: translateY(-50%); border-left: 7px solid rgba(217, 70, 239, 0.8); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
 
+/* ---------- Featured categories ---------- */
+.categories-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+
+.category-card { text-align: center; display: flex; flex-direction: column; align-items: center; }
+
+.category-circle {
+  width: min(100%, 150px);
+  aspect-ratio: 1 / 1;            /* guarantees a perfect circle */
+  border-radius: 50%;
+  overflow: hidden;               /* crops anything that sticks out of the circle */
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.65);
+  margin-bottom: 16px;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Images always fill their circle: object-fit crops the overflow
+   instead of squashing or letterboxing, regardless of source ratio. */
+.category-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;                 /* removes the inline-image baseline gap */
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-circle {
+  transform: translateY(-6px);
+  border-color: rgba(129, 140, 248, 0.65);
+  box-shadow: 0 22px 46px -16px rgba(99, 102, 241, 0.6);
+}
+.category-card:hover .category-circle img { transform: scale(1.08); }
+
+.category-name { font-family: var(--font-head); font-weight: 600; font-size: 16px; }
+.category-count { font-size: 12.5px; color: var(--text-faint); margin-top: 3px; }
+
 /* ---------- Stats ---------- */
 .stats { padding: 30px 0 90px; }
 .stats-grid {
@@ -667,6 +705,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
   .features-grid, .testi-grid { grid-template-columns: repeat(2, 1fr); }
+  .categories-grid { grid-template-columns: repeat(3, 1fr); gap: 30px 22px; }
   .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   .price-card.price-popular { grid-column: span 2; order: -1; }
   .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
@@ -708,6 +747,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
 @media (max-width: 640px) {
   .section { padding: 80px 0; }
   .features-grid, .testi-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; }
+  .category-circle { width: min(100%, 140px); }
   .price-card.price-popular { grid-column: span 1; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
